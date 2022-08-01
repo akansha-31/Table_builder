@@ -1,6 +1,5 @@
 *.pyc
 *.DS_Store
 app/migrations
-attendance_management_system/settings.py
 table_builder/settings.py
 db.sqlite3
