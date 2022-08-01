@@ -1,5 +1,4 @@
 {% extends 'app/layout.html' %}
-
 {% block title %}Create Table{% endblock %}
 {% block sub_title %}<img src="https://thumbs.dreamstime.com/b/edit-icon-trendy-edit-logo-concept-white-background-use-edit-icon-trendy-edit-logo-concept-white-background-user-131173494.jpg" width="50" height="50">{% endblock %}
 
@@ -27,6 +26,10 @@
       </div>
     </article>
   </form>
-{% endif %}
-
+  {% endif %}
+  {% if tablerecords %}
+  
+  {{ tablerecords.name }}
+  
+  {% endif %}
 {% endblock %}
