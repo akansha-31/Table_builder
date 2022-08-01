@@ -1,0 +1,32 @@
+{% extends 'app/layout.html' %}
+
+{% block title %}Create Table{% endblock %}
+{% block sub_title %}<img src="https://thumbs.dreamstime.com/b/edit-icon-trendy-edit-logo-concept-white-background-use-edit-icon-trendy-edit-logo-concept-white-background-user-131173494.jpg" width="50" height="50">{% endblock %}
+
+{% block main_title %}Table Schema{% endblock %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<form method="POST">
+    <article class="media">
+      <div class="media-content">
+        <div class="field">
+          <p class="control">
+            {% csrf_token %}
+            <div class="field has-addons">
+              <div class="control is-expanded">
+                {{ form.name }}
+              </div>
+              <div class="control">
+                <button class="button is-info">Submit</button>
+              </div>
+            </div>
+          </p>
+        </div>
+      </div>
+    </article>
+  </form>
+{% endif %}
+
+{% endblock %}
