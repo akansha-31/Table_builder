@@ -1,15 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth import logout as django_logout
 from django.conf import settings
 
  
-# Create your views here.
- 
-def index(request):
-   if request.method == "GET":
-       return render(request, "app/index.html")
-
 @login_required
 def logout(request):
    django_logout(request)
