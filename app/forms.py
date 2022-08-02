@@ -1,13 +1,14 @@
-from django.forms import BooleanField, ModelForm, TextInput
+from django.forms import BooleanField, IntegerField, ModelForm, TextInput
 from app.models import TableRecords, TableColumns
 
 
 class TableRecordForm(ModelForm):
     class Meta:
         model = TableRecords
-        fields = ['name']
+        fields = ['name', 'columns']
         widgets = {
-            'name' : TextInput(attrs=({'class' : 'input', 'placeholder' : 'Enter Table name'}))
+            'name' : TextInput(attrs=({'class' : 'input', 'placeholder' : 'Enter Table name'})),
+            'columns' : IntegerField(),
         }
 
 class TableColumnFrom(ModelForm):
