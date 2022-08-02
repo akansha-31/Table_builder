@@ -15,14 +15,13 @@
             {% csrf_token %}
             <div class="field has-addons">
               <div class="control is-expanded">
-                {{ form.name }}
-                {{ form2.as_p }}
-              </div>
-              <div class="control">
-                <button class="button is-info">Submit</button>
+                {{ form.as_p }}
               </div>
             </div>
           </p>
+          <div class="control">
+            <button class="button is-info">Submit</button>
+          </div>
         </div>
       </div>
     </article>

@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, render
 from app.forms import TableRecordForm, TableColumnFrom
 import datetime
-from app.models import TableRecords, table_columns
+from app.models import TableRecords
 
 def CreateTable(request):
     if request.method == 'POST':
@@ -9,7 +9,6 @@ def CreateTable(request):
         form2 = TableColumnFrom(request.POST or None)
         if all([form.is_valid(), form2.is_valid()]):
             tablerecords = form.save(commit=False)
-            table_columns = form2.save(commit=False)
             tablerecords.created_by = request.user
             tablerecords.created_at = datetime.datetime.now()
             tablerecords.save()

@@ -1,4 +1,4 @@
-from django.forms import BooleanField, IntegerField, ModelForm, TextInput
+from django.forms import BooleanField, IntegerField, ModelForm, NumberInput, TextInput
 from app.models import TableRecords, TableColumns
 
 
@@ -8,7 +8,7 @@ class TableRecordForm(ModelForm):
         fields = ['name', 'columns']
         widgets = {
             'name' : TextInput(attrs=({'class' : 'input', 'placeholder' : 'Enter Table name'})),
-            'columns' : IntegerField(),
+            'columns' : NumberInput(attrs=({'class' : 'input', 'placeholder' : 'Enter Number Of Columns'})),
         }
 
 class TableColumnFrom(ModelForm):
