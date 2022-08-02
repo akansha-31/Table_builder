@@ -1,7 +1,6 @@
 from django.shortcuts import redirect, render
 from app.forms import TableColumnForm
-
-
+from django.forms import formset_factory
 
 def CreateColumn(request, columns):
     if request.method == "POST":
@@ -11,9 +10,8 @@ def CreateColumn(request, columns):
             return redirect('index')
     else:
         no_of_columns = columns
-        form = TableColumnForm()
+        TableFormSet = formset_factory(TableColumnForm, extra=no_of_columns)
         context = {
-            'form' : form,
-            'range' : range(no_of_columns)
+            'form' : TableFormSet,
         }
         return render(request, 'app/create_column.html', context) 
