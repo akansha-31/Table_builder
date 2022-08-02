@@ -7,7 +7,7 @@ def CreateTable(request):
     if request.method == 'POST':
         form = TableRecordForm(request.POST or None)
         form2 = TableColumnForm(request.POST or None)
-        if all([form.is_valid(), form2.is_valid()]):
+        if form.is_valid():
             tablerecords = form.save(commit=False)
             tablerecords.created_by = request.user
             tablerecords.created_at = datetime.datetime.now()
