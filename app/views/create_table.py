@@ -11,10 +11,10 @@ def CreateTable(request):
             tablerecords = form.save(commit=False)
             tablerecords.created_by = request.user
             tablerecords.created_at = datetime.datetime.now()
-            
-            columns = tablerecords.columns
+            tablerecords.save()
+            t_id = tablerecords.id
           
-            return redirect('create_column', columns)
+            return redirect('create_column', t_id)
             
     else:
         form = TableRecordForm()
