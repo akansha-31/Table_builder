@@ -15,7 +15,9 @@
             {% csrf_token %}
             <div class="field has-addons">
               <div class="control is-expanded">
-                {{ form.as_p }}
+                {% for i in form %}
+                {{ i.as_p }}
+                {% endfor %}
               </div>
             </div>
           </p>
