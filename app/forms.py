@@ -8,7 +8,7 @@ class TableRecordForm(ModelForm):
         fields = ['name', 'columns']
         widgets = {
             'name' : TextInput(attrs=({'class' : 'input', 'placeholder' : 'Enter Table name'})),
-            'columns' : NumberInput(attrs=({'class' : 'input', 'placeholder' : 'Enter Number Of Columns'})),
+            'columns' : NumberInput(attrs=({'class' : 'input', 'placeholder' : 'Enter Number Of Columns', 'required' : True})),
         }
 
 class TableColumnForm(ModelForm):
