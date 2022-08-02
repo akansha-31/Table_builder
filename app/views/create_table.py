@@ -1,12 +1,12 @@
 from django.shortcuts import redirect, render
-from app.forms import TableRecordForm, TableColumnFrom
+from app.forms import TableRecordForm, TableColumnForm
 import datetime
 from app.models import TableRecords
 
 def CreateTable(request):
     if request.method == 'POST':
         form = TableRecordForm(request.POST or None)
-        form2 = TableColumnFrom(request.POST or None)
+        form2 = TableColumnForm(request.POST or None)
         if all([form.is_valid(), form2.is_valid()]):
             tablerecords = form.save(commit=False)
             tablerecords.created_by = request.user
@@ -15,7 +15,7 @@ def CreateTable(request):
             return redirect('create_table')
     else:
         form = TableRecordForm()
-        form2 = TableColumnFrom()
+        form2 = TableColumnForm()
         tablerecords = TableRecords.objects.last()
 
 

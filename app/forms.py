@@ -1,4 +1,4 @@
-from django.forms import BooleanField, IntegerField, ModelForm, NumberInput, TextInput
+from django.forms import BooleanField, IntegerField, ModelForm, NumberInput, TextInput, formset_factory
 from app.models import TableRecords, TableColumns
 
 
@@ -11,7 +11,7 @@ class TableRecordForm(ModelForm):
             'columns' : NumberInput(attrs=({'class' : 'input', 'placeholder' : 'Enter Number Of Columns'})),
         }
 
-class TableColumnFrom(ModelForm):
+class TableColumnForm(ModelForm):
     class Meta:
         model = TableColumns
         fields = ['column_name', 'column_type', 'is_primary', 'nullable']
@@ -19,3 +19,4 @@ class TableColumnFrom(ModelForm):
             'column_name' : TextInput(attrs=({'class' : 'input', 'placeholder' : 'Enter column name'})),
             'column_type' : TextInput(attrs=({'class' : 'input', 'placeholder' : 'Enter column type'})),
         }
+    
