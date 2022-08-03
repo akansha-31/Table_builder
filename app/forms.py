@@ -9,7 +9,7 @@ class TableRecordForm(ModelForm):
         model = TableRecords
         fields = ['name', 'columns']
         widgets = {
-            'name' : TextInput(attrs=({'class' : 'input', 'placeholder' : 'Enter Table name', 'required' : True})),
+            'name' : TextInput(attrs=({'class' : 'input', 'placeholder' : 'Enter Table name', 'required' : True, 'pattern':'[A-Za-z ]+'})),
             'columns' : NumberInput(attrs=({'class' : 'input', 'placeholder' : 'Enter Number Of Columns', 'required' : True})),
         }
 
@@ -27,6 +27,6 @@ class TableColumnForm(ModelForm):
         fields = ['column_name', 'column_type', 'is_primary', 'nullable']
         column_type = forms.ChoiceField(choices = CHOICES)
         widgets = {
-            'column_name' : TextInput(attrs=({'class' : 'input', 'placeholder' : 'Enter column name', 'required' : True, 'unique':True})),
+            'column_name' : TextInput(attrs=({'class' : 'input', 'placeholder' : 'Enter column name', 'required' : True, 'unique':True, 'pattern':'[A-Za-z ]+'})),
         }
     
