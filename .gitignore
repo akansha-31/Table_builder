@@ -1,5 +1,2 @@
 *.pyc
 *.DS_Store
-app/migrations
-
-db.sqlite3
