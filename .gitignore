@@ -1,5 +1,5 @@
 *.pyc
 *.DS_Store
 app/migrations
-table_builder/settings.py
+
 db.sqlite3
