@@ -1,6 +1,8 @@
 from django.forms import BooleanField, IntegerField, ModelForm, NumberInput, TextInput, formset_factory
 from app.models import TableRecords, TableColumns
+from app.models.table_columns import CHOICES
 
+from django import forms
 
 class TableRecordForm(ModelForm):
     class Meta:
@@ -11,20 +13,20 @@ class TableRecordForm(ModelForm):
             'columns' : NumberInput(attrs=({'class' : 'input', 'placeholder' : 'Enter Number Of Columns', 'required' : True})),
         }
 
-GEEKS_CHOICES =(
-    ("1", "One"),
-    ("2", "Two"),
-    ("3", "Three"),
-    ("4", "Four"),
-    ("5", "Five"),
+CHOICES =(
+    ("String", "String"),
+    ("Number", "Number"),
+    ("Email", "Email"),
+    ("DateTime", "DateTime"),
+    ("Boolean", "Boolean"),
 )
 
 class TableColumnForm(ModelForm):
     class Meta:
         model = TableColumns
         fields = ['column_name', 'column_type', 'is_primary', 'nullable']
+        column_type = forms.ChoiceField(choices = CHOICES)
         widgets = {
             'column_name' : TextInput(attrs=({'class' : 'input', 'placeholder' : 'Enter column name'})),
-            'column_type' : TextInput(attrs=({'class' : 'input', 'placeholder' : 'Enter column type'})),
         }
     
