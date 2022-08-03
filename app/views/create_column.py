@@ -17,7 +17,7 @@ def CreateColumn(request, t_id):
                     tablecolumns = form.save(commit=False)
                     tablecolumns.t_id = tablerecord
                     tablecolumns.save()
-            return redirect('index')
+        return redirect('index')
     else:
         context = {
             'form' : TableFormSet,
