@@ -13,11 +13,11 @@ def CreateColumn(request, t_id):
 
         if formset.is_valid():
             for form in formset:
-                if form.is_valid:
+                if form.is_valid():
                     tablecolumns = form.save(commit=False)
                     tablecolumns.t_id = tablerecord
                     tablecolumns.save()
-        return redirect('index')
+            return redirect('index')
     else:
         context = {
             'form' : TableFormSet,
